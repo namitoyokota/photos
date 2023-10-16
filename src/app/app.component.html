@@ -1,0 +1,14 @@
+<!-- Header -->
+<a class="logo" href="https://namitoyokota.com">
+    <img src="assets/logos/white.svg" />
+</a>
+
+<!-- Images -->
+<div class="photo-list">
+    <a *ngFor="let photo of photoFileNames" [href]="defaultFilePath + photo + extension" target="_blank">
+        <img [defaultImage]="compressedFilePath + photo + extension" [lazyLoad]="defaultFilePath + photo + extension" />
+    </a>
+</div>
+
+<!-- Footer -->
+<p>&#169; Namito Yokota</p>
