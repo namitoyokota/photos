@@ -6,7 +6,7 @@
 <!-- Images -->
 <div class="photo-list">
     <a *ngFor="let photo of photoFileNames" [href]="defaultFilePath + photo + extension" target="_blank">
-        <img [defaultImage]="compressedFilePath + photo + extension" [lazyLoad]="defaultFilePath + photo + extension" />
+        <img [defaultImage]="compressedFilePath + photo + extension" [lazyLoad]="defaultFilePath + photo + extension" [useSrcset]="true" />
     </a>
 </div>
 
