@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     /** Indicates root folder with full images */
     readonly defaultFilePath = 'assets/images/';
 
@@ -30,4 +31,15 @@ export class AppComponent {
 
     /** Extension used to display each image file */
     readonly extension = '.jpg';
+
+    constructor(private meta: Meta) {}
+
+    /**
+     * On init lifecycle hook
+     */
+    ngOnInit(): void {
+        this.meta.updateTag({ property: 'og:title', content: 'Photos by Namito' });
+        this.meta.updateTag({ property: 'og:image', content: 'assets/meta.png' });
+        this.meta.updateTag({ property: 'og:url', content: 'https://photos.namitoyokota.com' });
+    }
 }
