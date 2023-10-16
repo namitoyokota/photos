@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.meta.updateTag({ property: 'og:title', content: 'Photos by Namito' });
-        this.meta.updateTag({ property: 'og:image', content: 'assets/meta.png' });
+        this.meta.updateTag({ property: 'og:image', content: 'https://www.namitoyokota.com/images/meta.png' });
         this.meta.updateTag({ property: 'og:url', content: 'https://photos.namitoyokota.com' });
     }
 }
