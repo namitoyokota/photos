@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 interface Image {
     id: string;
@@ -13,7 +14,7 @@ interface Image {
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
     /** Indicates when loading text is displayed */
     isLoading = true;
 
@@ -21,7 +22,10 @@ export class AppComponent implements OnInit {
     images: Image[] = [];
 
     /** Route of API to retrieve images from */
-    readonly apiUrl = 'https://api.namitoyokota.com/images.json';
+    readonly imagesApiUrl = 'https://api.namitoyokota.com/images.json';
+
+    /** Subscription to listen to get images API call */
+    private imageSubscription = new Subscription();
 
     constructor(private http: HttpClient) {}
 
@@ -29,9 +33,16 @@ export class AppComponent implements OnInit {
      * On init lifecycle hook
      */
     ngOnInit(): void {
-        this.http.get<Image[]>(`${this.apiUrl}`).subscribe((images) => {
+        this.imageSubscription = this.http.get<Image[]>(this.imagesApiUrl).subscribe((images) => {
             this.images = images;
             this.isLoading = false;
         });
+    }
+
+    /**
+     * On destroy lifecycle hook
+     */
+    ngOnDestroy(): void {
+        this.imageSubscription.unsubscribe();
     }
 }

@@ -31,15 +31,15 @@
     grid-template-rows: min-content auto;
     row-gap: 20px;
 
+    .logo {
+        height: 35px;
+        width: 35px;
+    }
+
     .header {
         display: flex;
         flex-direction: column;
         row-gap: 10px;
-
-        .logo {
-            height: 50px;
-            width: 50px;
-        }
     }
 
     img {
