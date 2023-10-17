@@ -8,8 +8,13 @@
 
 <!-- Images -->
 <div class="photo-list">
-    <a *ngFor="let photo of photoFileNames" [href]="defaultFilePath + photo + extension" target="_blank">
-        <img [defaultImage]="compressedFilePath + photo + extension" [lazyLoad]="defaultFilePath + photo + extension" [useSrcset]="true" />
+    <a *ngFor="let photo of photoFileNames | keyvalue : descOrder" [href]="defaultFilePath + photo.key + extension" target="_blank">
+        <img
+            [defaultImage]="compressedFilePath + photo.key + extension"
+            [lazyLoad]="defaultFilePath + photo.key + extension"
+            [useSrcset]="true"
+            [alt]="photo.value"
+        />
     </a>
 </div>
 
