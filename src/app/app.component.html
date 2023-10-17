@@ -1,6 +1,6 @@
-<!-- Welcome Text -->
-<div class="welcome-pane" [class]="isWelcoming ? 'show' : 'hide'">
-    <div class="welcome-text">
+<!-- Loading Text -->
+<div *ngIf="isLoading" class="loading-pane">
+    <div class="loading-text">
         <span>Loading...</span>
     </div>
 </div>

@@ -14,8 +14,8 @@ interface Image {
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    /** Indicates when welcome animation is displayed */
-    isWelcoming = true;
+    /** Indicates when loading text is displayed */
+    isLoading = true;
 
     /** List of images to display */
     images: Image[] = [];
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.http.get<Image[]>(`${this.apiUrl}`).subscribe((images) => {
             this.images = images;
-            this.isWelcoming = false;
+            this.isLoading = false;
         });
     }
 }
