@@ -1,24 +1,29 @@
-<!-- Header -->
-<div class="header">
-    <a class="logo" href="https://namitoyokota.com">
-        <img src="https://www.namitoyokota.com/logos/white.svg" />
-    </a>
-    <span>Namito Yokota</span>
-    <span>Huntsville, AL</span>
-    <a href="mailto:namitoyokota@icloud.com">namitoyokota@icloud.com</a>
+<!-- Welcome Text -->
+<div class="welcome-pane" [class]="isWelcoming ? 'show' : 'hide'">
+    <div class="welcome-text">
+        <span>Loading...</span>
+    </div>
 </div>
 
-<!-- Images -->
-<div class="photo-list">
-    <a *ngFor="let photo of photoFileNames | keyvalue : descOrder" [href]="defaultFilePath + photo.key + extension" target="_blank">
-        <img
-            [defaultImage]="compressedFilePath + photo.key + extension"
-            [lazyLoad]="defaultFilePath + photo.key + extension"
-            [useSrcset]="true"
-            [alt]="photo.value"
-        />
-    </a>
-</div>
+<!-- Content -->
+<div class="content-pane">
+    <!-- Header -->
+    <div class="header">
+        <a class="logo" href="https://namitoyokota.com">
+            <img src="https://www.namitoyokota.com/logos/white.svg" />
+        </a>
+        <span>Namito Yokota</span>
+        <span>Huntsville, AL</span>
+        <a href="mailto:namitoyokota@icloud.com">namitoyokota@icloud.com</a>
+    </div>
 
-<!-- Footer -->
-<p>&#169; Namito Yokota</p>
+    <!-- Images -->
+    <div class="photo-list">
+        <a *ngFor="let image of images" [href]="image.fullImageUrl" target="_blank">
+            <img [defaultImage]="image.blurredImageUrl" [lazyLoad]="image.fullImageUrl" [useSrcset]="true" [alt]="image.alt" />
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <p>&#169; Namito Yokota</p>
+</div>
