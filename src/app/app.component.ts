@@ -48,6 +48,9 @@ export class AppComponent {
         ['JAN_3736', 'horse - bell'],
         ['JAN_3852', 'horse - anna'],
         ['JAN_4137', 'hiking - braden'],
+        ['JAN_1450', 'japan - fish market'],
+        ['JAN_1452', 'japan - fish market'],
+        ['JAN_1453', 'japan - fish market'],
         // ['JAN_1807', 'bryant denny - hannah and haylee']
         // ['JAN_1811', 'bryant denny - haylee']
         // ['JAN_2740' 'beach chair'],
