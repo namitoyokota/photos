@@ -4,9 +4,15 @@
     row-gap: 20px;
 }
 
-.logo {
-    height: 50px;
-    width: 50px;
+.header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
 }
 
 .photo-list {
@@ -64,6 +70,10 @@
         column-gap: 20px;
         row-gap: 20px;
     }
+}
+
+a {
+    color: white;
 }
 
 img {
