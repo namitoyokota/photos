@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     images: Image[] = [];
 
     /** Route of API to retrieve images from */
-    readonly apiUrl = 'https://namitoyokota.github.io/images.json';
+    readonly apiUrl = 'https://api.namitoyokota.com/images.json';
 
     constructor(private http: HttpClient) {}
 
