@@ -22,7 +22,13 @@
     <!-- Images -->
     <div class="photo-list">
         <a *ngFor="let image of images" [href]="image.fullImageUrl" target="_blank">
-            <img [defaultImage]="image.blurredImageUrl" [lazyLoad]="image.fullImageUrl" [useSrcset]="true" [alt]="image.alt" />
+            <img
+                [defaultImage]="image.blurredImageUrl"
+                [lazyLoad]="image.fullImageUrl"
+                [useSrcset]="true"
+                [alt]="image.alt"
+                loading="lazy"
+            />
         </a>
     </div>
 
