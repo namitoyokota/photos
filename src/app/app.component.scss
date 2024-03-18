@@ -52,59 +52,38 @@
     }
 
     .photo-list {
-        display: grid;
+        display: inline-grid;
         grid-template-columns: repeat(5, 1fr);
         column-gap: 20px;
         row-gap: 20px;
-    }
 
-    /** Phones */
-    @media only screen and (max-width: 600px) {
-        .photo-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            column-gap: 20px;
-            row-gap: 20px;
-        }
-    }
-
-    /** Large Phones */
-    @media only screen and (min-width: 600px) {
-        .photo-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            column-gap: 20px;
-            row-gap: 20px;
-        }
-    }
-
-    /** Tablets */
-    @media only screen and (min-width: 768px) {
-        .photo-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            column-gap: 20px;
-            row-gap: 20px;
-        }
-    }
-
-    /** Laptops */
-    @media only screen and (min-width: 992px) {
-        .photo-list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            column-gap: 20px;
-            row-gap: 20px;
-        }
-    }
-
-    /** Desktops */
-    @media only screen and (min-width: 1200px) {
-        .photo-list {
-            display: grid;
+        &:hover {
             grid-template-columns: repeat(5, 1fr);
-            column-gap: 20px;
-            row-gap: 20px;
+        }
+
+        /** Phones */
+        @media only screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+
+        /** Large Phones */
+        @media only screen and (min-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /** Tablets */
+        @media only screen and (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /** Laptops */
+        @media only screen and (min-width: 992px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /** Desktops */
+        @media only screen and (min-width: 1200px) {
+            grid-template-columns: repeat(5, 1fr);
         }
     }
 }
