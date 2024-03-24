@@ -24,6 +24,9 @@ export class AppComponent implements OnInit, OnDestroy {
     /** Route of API to retrieve images from */
     readonly imagesApiUrl = 'https://api.namitoyokota.com/images.json';
 
+    /** Key used to store API response */
+    readonly cacheKey = 'images';
+
     /** Subscription to listen to get images API call */
     private imageSubscription = new Subscription();
 
@@ -33,9 +36,21 @@ export class AppComponent implements OnInit, OnDestroy {
      * On init lifecycle hook
      */
     ngOnInit(): void {
-        this.imageSubscription = this.http.get<Image[]>(this.imagesApiUrl).subscribe((images) => {
-            this.images = images;
-            this.isLoading = false;
+        this.imageSubscription = this.http.get<Image[]>(this.imagesApiUrl).subscribe({
+            next: (images) => {
+                this.images = images;
+                localStorage.setItem(this.cacheKey, JSON.stringify(this.images));
+                this.isLoading = false;
+            },
+            error: () => {
+                const cachedImages = JSON.parse(localStorage.getItem('images') as string);
+                if (cachedImages?.length) {
+                    console.info('Found cached API response in local storage.');
+                    this.images = cachedImages;
+                }
+
+                this.isLoading = false;
+            },
         });
     }
 
